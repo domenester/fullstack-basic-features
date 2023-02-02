@@ -6,6 +6,8 @@ import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './auth/strategies/jwt.strategy';
 import { join } from 'path';
 import { UserModule } from './module/user.module';
+import { SignupModule } from './module/signup.module';
+import { PasswordModule } from './module/password.module';
 // import { AuthModule } from './module/auth.module';
 
 const { JWT_SECRET, NODE_ENV } = process.env;
@@ -30,6 +32,8 @@ const { JWT_SECRET, NODE_ENV } = process.env;
     }),
     // AuthModule,
     UserModule,
+    SignupModule,
+    PasswordModule,
   ],
   providers: [JwtStrategy],
 })

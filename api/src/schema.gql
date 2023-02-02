@@ -38,9 +38,26 @@ input ListUserInput {
 
 type Mutation {
   createUser(body: CreateUserInput): UserResponse!
+  signup(body: CreateUserInput): UserResponse!
+  register(body: RegisterInput): UserResponse!
+  forgotPassword(body: ForgotPasswordInput): UserResponse!
+  resetPassword(body: ResetPasswordInput): UserResponse!
 }
 
 input CreateUserInput {
   name: String!
   email: String!
+  password: String
+}
+
+input RegisterInput {
+  password: String!
+}
+
+input ForgotPasswordInput {
+  email: String!
+}
+
+input ResetPasswordInput {
+  password: String!
 }
