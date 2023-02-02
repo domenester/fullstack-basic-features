@@ -8,7 +8,7 @@ import * as jwt from 'jsonwebtoken';
 import { forgotPassword, resetPassword } from './mock/password.mock';
 import { Prisma } from '@prisma/client';
 
-describe('Signup (e2e)', () => {
+describe('Password (e2e)', () => {
   let app: INestApplication;
   let prisma: PrismaService;
 
@@ -22,6 +22,7 @@ describe('Signup (e2e)', () => {
 
     await app.init();
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password, ...data } = defaultUser;
     await prisma.user.create({
       data: data as Prisma.UserCreateInput,
@@ -44,7 +45,7 @@ describe('Signup (e2e)', () => {
         ({
           body: {
             data: {
-              forgotPassword: { data, message },
+              forgotPassword: { message },
             },
           },
         }) => {
@@ -67,7 +68,7 @@ describe('Signup (e2e)', () => {
         async ({
           body: {
             data: {
-              resetPassword: { data, message },
+              resetPassword: { message },
             },
           },
         }) => {
